@@ -11,6 +11,8 @@ gem 'pry-rails'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
