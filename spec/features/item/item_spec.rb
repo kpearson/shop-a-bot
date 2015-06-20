@@ -13,4 +13,15 @@ describe "the items", :type => :feature do
     click_button 'Update Item'
     expect(page).to have_content 'Success'
   end
+
+  it "create prosess" do
+    visit "/items"
+    click_link "New Item"
+    within(".item_form") do
+      fill_in 'item_name', with: "new item"
+      fill_in 'item_description', with: "new item description"
+    end
+    click_button 'Create Item'
+    expect(page).to have_content "new item"
+  end
 end

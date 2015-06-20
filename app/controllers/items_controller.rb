@@ -7,6 +7,20 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      flash[:notice] = 'item was successfully created.'
+      redirect_to(@item)
+    else
+      render "new"
+    end
+  end
+
   def edit
     @item = Item.find(params[:id])
   end
@@ -17,7 +31,7 @@ class ItemsController < ApplicationController
       flash[:notice] = "Success."
       redirect_to item_path(item)
     else
-      render edit_item_path(item), notice: "Somthing went wrong!"
+      render "edit", notice: "Somthing went wrong!"
     end
   end
 
