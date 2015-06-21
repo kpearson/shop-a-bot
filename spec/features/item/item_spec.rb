@@ -1,10 +1,8 @@
 describe "the items", :type => :feature do
-  before :each do
-    Item.create(:name => 'Item name', :description => 'Item description')
-  end
+  let(:item) { create(:item) }
 
   it "edit prosess" do
-    visit '/items/1'
+    visit "/items/#{item.id}"
     click_link "Edit"
     within("#item") do
       fill_in 'item_name', :with => 'updated item name'

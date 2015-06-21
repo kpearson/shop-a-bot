@@ -14,6 +14,7 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner', '~> 1.4.1'
+  gem 'factory_girl_rails'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
