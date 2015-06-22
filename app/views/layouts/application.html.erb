@@ -10,7 +10,9 @@
   <div class="menu-bar">
     <%= link_to "Home", root_path %>
   </div>
-
+  <div>
+    <%= link_to "User Signup", signup_path %>
+  </div>
   <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: name %>
   <% end -%>
