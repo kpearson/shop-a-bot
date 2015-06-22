@@ -9,9 +9,11 @@
 <body>
   <div class="menu-bar">
     <%= link_to "Home", root_path %>
-  </div>
-  <div>
-    <%= link_to "User Signup", signup_path %>
+    <% if current_user %>
+      Signed in as <%= current_user.name %> | <%= link_to "Logout", logout_path %>
+    <% else %>
+      <%= link_to 'Login', login_path %> | <%= link_to 'Signup', signup_path %>
+    <% end %>
   </div>
   <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: name %>
