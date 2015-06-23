@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authorize, except: [:index, :show]
+  # before_action :authorize, except: [:index, :show]
 
   def index
     @items = Item.all
@@ -28,14 +28,27 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
-      flash[:notice] = "Success."
-      redirect_to item_path(item)
-    else
-      render "edit", notice: "Somthing went wrong!"
+    @item = Item.find(params[:id])
+    respond_to do |format|
+      if @item.update_attributes(item_params)
+        format.html { redirect_to(items_path) }
+        format.json { respond_with_bip(@item) }
+      else
+        format.html { redirect_to items_path }
+        format.json { respond_with_bip(@item) }
+      end
     end
   end
+
+  # def update
+  #   item = Item.find(params[:id])
+  #   if item.update(item_params)
+  #     flash[:notice] = "Success."
+  #     redirect_to item_path(item)
+  #   else
+  #     render "edit", notice: "Somthing went wrong!"
+  #   end
+  # end
 
   private
 

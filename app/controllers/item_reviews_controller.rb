@@ -12,6 +12,19 @@ class ItemReviewsController < ApplicationController
     end
   end
 
+  def update
+    review = ItemReview.find(params[:id])
+    respond_to do |format|
+      if review.update_attributes(review_params)
+        format.html { redirect_to(items_path) }
+        format.json { respond_with_bip(review) }
+      else
+        format.html { redirect_to items_path }
+        format.json { respond_with_bip(review) }
+      end
+    end
+  end
+
   private
 
   def review_params
