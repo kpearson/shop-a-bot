@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-rails'
 gem 'bcrypt'
+gem 'best_in_place', '~> 3.0.1'
 
 group :test, :development do
   gem 'rspec-rails'
