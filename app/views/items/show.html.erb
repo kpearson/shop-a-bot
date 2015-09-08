@@ -1,0 +1,12 @@
+<h1> <%= @item.name %></h1>
+<p> <%= @item.description %></p>
+<h2>Reviews</h2>
+<%= div_for @item.item_reviews, class: "review" do |review| %>
+  <p>
+  <%= best_in_place review, :title,
+    :url => item_item_review_path(@item, review),
+    :as => :input %>
+  </p>
+  <p><%= review.body %></p>
+<% end %>
+<%= link_to "Write a Review", new_item_item_review_path(@item) %>
