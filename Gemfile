@@ -10,8 +10,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-rails'
 
 group :test, :development do
-  gem 'rspec-rails'
-  gem 'capybara'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-reporters'
   gem 'launchy'
   gem 'database_cleaner', '~> 1.4.1'
   gem 'web-console', '~> 2.0'
